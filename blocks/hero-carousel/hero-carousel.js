@@ -50,17 +50,22 @@ export default function decorate(block) {
       .hcx-s > picture, .hcx-s > picture img, .hcx-s > video { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:top; }
       .hcx-c { position:absolute; top:0; left:0; bottom:20%; width:55%; z-index:2; display:flex; flex-direction:column; justify-content:center; padding:0 5% 0 8%; box-sizing:border-box; }
       .hcx-c.hcx-centered { left:0; width:100%; top:auto; bottom:20%; align-items:center; text-align:center; padding:0 8%; justify-content:flex-end; padding-bottom:15px; }
-      .hcx-discover { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:white; border-radius:30px; font-size:16px; font-weight:500; color:rgb(34,33,43); cursor:pointer; }
+      .hcx-discover { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:white; border-radius:30px; font-size:16px; font-weight:500; color:rgb(34,33,43); cursor:pointer; transition:all 0.2s ease; }
+      .hcx-discover:hover { background:#22212b; color:#fff; }
+      .hcx-discover:hover .icon-blue-arrow img { filter:brightness(0) invert(1); }
       .hcx-discover .icon-blue-arrow { display:inline-flex; align-items:center; }
-      .hcx-discover .icon-blue-arrow img { width:24px; height:24px; }
+      .hcx-discover .icon-blue-arrow img { width:24px; height:24px; transition:filter 0.2s ease; }
       .hcx-c h2, .hcx-c h2 strong { font-size:54px; font-weight:500 !important; line-height:65px; margin:0 0 20px; color:#fff; }
       .hcx-c .button-container { display:inline; }
       .hcx-c a.button { all:unset; cursor:pointer; }
       .hcx-c a.button::after { display:none; }
       .hcx-c p { font-size:16px; font-weight:300; line-height:1.6; margin:0 0 12px; color:rgba(255,255,255,.9); }
       .hcx-btn { display:inline-flex; align-items:center; gap:8px; padding:12px 24px; border-radius:24px; font-size:14px; font-weight:500; text-decoration:none; margin-right:12px; margin-top:8px; }
-      .hcx-dark { background:#22212b; color:#fff; border:1px solid #22212b; }
-      .hcx-light { background:#fff; color:#22212b; border:1px solid #fff; }
+      .hcx-dark, .hcx-dark:any-link { background:#22212b; color:#fff; border:1px solid #22212b; }
+      .hcx-dark:hover { opacity:0.85; }
+      .hcx-light, .hcx-light:any-link { background:#fff; color:#22212b; border:1px solid #fff; }
+      .hcx-light:hover { background:#22212b; color:#fff; }
+      .hcx-play-icon { display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; border-radius:50%; border:1.5px solid currentColor; font-size:10px; }
       .hcx-ctrls { position:absolute; bottom:0; left:0; right:0; z-index:10; display:flex; justify-content:center; padding:20px 8%; }
       .hcx-cb { flex:1; max-width:280px; background:none; border:none; padding:12px 16px; cursor:pointer; text-align:center; }
       .hcx-cb span { display:block; font-size:14px; font-weight:400; color:#22212b; margin-bottom:8px; }
@@ -79,7 +84,8 @@ export default function decorate(block) {
 
     let btns = '';
     s.ctas.forEach((c, ci) => {
-      btns += `<a href="${c.href}" class="hcx-btn ${ci === 0 ? 'hcx-dark' : 'hcx-light'}">${c.text}</a>`;
+      const icon = ci === 0 ? '<span class="hcx-play-icon">&#9654;</span>' : '';
+      btns += `<a href="${c.href}" class="hcx-btn ${ci === 0 ? 'hcx-dark' : 'hcx-light'}">${icon}${c.text}</a>`;
     });
 
     // For the last slide with no heading/body, inject "Discover more" from controls table
