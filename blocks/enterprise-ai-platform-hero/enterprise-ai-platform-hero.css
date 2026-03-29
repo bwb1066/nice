@@ -5,9 +5,9 @@ main > .section.enterprise-ai-platform-hero-container {
 }
 
 main > .section > .enterprise-ai-platform-hero-wrapper {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 0 24px !important;
+  max-width: unset !important;
+  margin: 0 !important;
+  padding: 0 14% !important;
 }
 
 /* hero row — text left, image right */

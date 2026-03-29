@@ -1,0 +1,192 @@
+/* section */
+main > .section.ai-first-cx-hero-container {
+  padding: 80px 0 !important;
+  margin: 0 !important;
+}
+
+main > .section.ai-first-cx-hero-container > .default-content-wrapper {
+  max-width: 800px !important;
+  margin: 0 auto 48px !important;
+  text-align: center;
+  padding: 0 24px !important;
+}
+
+main > .section.ai-first-cx-hero-container > .default-content-wrapper h2,
+main > .section.ai-first-cx-hero-container > .default-content-wrapper h2 strong,
+main > .section.ai-first-cx-hero-container > .default-content-wrapper h3,
+main > .section.ai-first-cx-hero-container > .default-content-wrapper h3 strong {
+  font-size: 36px;
+  font-weight: 500 !important;
+  line-height: 1.2;
+  color: rgb(34, 33, 43);
+  margin: 0 0 16px;
+}
+
+main > .section.ai-first-cx-hero-container > .default-content-wrapper p {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgb(107, 107, 107);
+  margin: 0;
+}
+
+main > .section > .ai-first-cx-hero-wrapper {
+  max-width: unset !important;
+  margin: 0 !important;
+  padding: 0 14% !important;
+}
+
+/* layout — accordion left, image right */
+.afc-layout {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.afc-accordion {
+  flex: 0 0 32%;
+}
+
+.afc-images {
+  flex: 1;
+  position: relative;
+  min-height: 400px;
+}
+
+/* accordion items */
+.afc-item {
+  border-left: 1.5px solid rgb(230, 230, 230);
+  padding: 12px 0 12px 20px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.afc-item.afc-active {
+  border-left-color: rgb(230, 230, 230);
+}
+
+.afc-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.afc-title {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgb(170, 170, 170);
+  line-height: 1.4;
+  transition: all 0.3s ease;
+}
+
+.afc-active .afc-title {
+  font-weight: 600;
+  color: rgb(34, 33, 43);
+  font-size: 18px;
+}
+
+/* expand/collapse icon */
+.afc-icon {
+  flex-shrink: 0;
+  margin-left: 12px;
+  width: 28px;
+  height: 28px;
+  position: relative;
+}
+
+.afc-icon img {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
+
+.afc-icon-expand {
+  opacity: 1;
+}
+
+.afc-icon-collapse {
+  opacity: 0;
+}
+
+.afc-active .afc-icon-expand {
+  opacity: 0;
+}
+
+.afc-active .afc-icon-collapse {
+  opacity: 1;
+}
+
+/* expandable body */
+.afc-item-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.afc-active .afc-item-body {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 12px;
+}
+
+.afc-desc {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgb(107, 107, 107);
+  margin: 0 0 16px;
+}
+
+.afc-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgb(34, 33, 43);
+  color: white !important;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.afc-cta:hover {
+  opacity: 0.85;
+}
+
+.afc-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+}
+
+/* images — crossfade */
+.afc-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.afc-img.afc-active {
+  opacity: 1;
+}
+
+.afc-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
