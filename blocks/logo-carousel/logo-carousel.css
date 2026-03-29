@@ -1,0 +1,70 @@
+/* section overrides */
+main > .section > .logo-carousel-wrapper {
+  max-width: unset !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+main > .section.logo-carousel-container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* block */
+.logo-carousel {
+  background: linear-gradient(180deg, rgb(242, 240, 235) 0%, rgb(255, 255, 255) 100%);
+  padding: 40px 0 50px;
+  overflow: hidden;
+}
+
+/* heading */
+.lc-heading {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(34, 33, 43);
+  margin: 0 0 40px;
+  padding: 0 24px;
+}
+
+/* track wrapper — masks edges */
+.lc-track-wrapper {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+/* scrolling track */
+.lc-track {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: max-content;
+  animation: lc-scroll 60s linear infinite;
+}
+
+/* individual logo */
+.lc-logo {
+  flex-shrink: 0;
+  width: 150px;
+  height: 120px;
+  border-radius: 50px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lc-logo img {
+  display: block;
+  max-width: 110px;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+@keyframes lc-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

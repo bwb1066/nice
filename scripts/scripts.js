@@ -17,6 +17,9 @@ import {
  * @param {Element} main The container element
  */
 function buildHeroBlock(main) {
+  // Skip if page has a hero-carousel or other hero-like block
+  if (main.querySelector('.hero-carousel')) return;
+
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
   // eslint-disable-next-line no-bitwise
