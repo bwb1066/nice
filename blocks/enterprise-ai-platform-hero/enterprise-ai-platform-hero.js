@@ -17,11 +17,15 @@ export default function decorate(block) {
     [...cardsRow.children].forEach((card) => {
       card.classList.add('eaph-card');
       // Style "Learn more" links
+      const cardHeading = card.querySelector('h3, h4, h2');
       card.querySelectorAll('a').forEach((a) => {
         a.classList.add('eaph-link');
         const bc = a.closest('.button-container');
         if (bc) bc.style.display = 'inline';
         a.classList.remove('button', 'primary', 'secondary');
+        if (a.textContent.trim() === 'Learn more' && cardHeading) {
+          a.setAttribute('aria-label', `Learn more about ${cardHeading.textContent.trim()}`);
+        }
       });
     });
   }

@@ -47,7 +47,7 @@ export default function decorate(block) {
           <div class="csc-logo" data-logo-pic="${i}"></div>
           <h3 class="csc-title">${s.title}</h3>
           <div class="csc-stats">${statsHtml}</div>
-          <div class="csc-learn">Learn more <span>→</span></div>
+          <div class="csc-learn" aria-label="Learn more about ${s.title}">Learn more <span>→</span></div>
         </div>
         <div class="csc-bg" data-bg-pic="${i}"></div>
       </div>

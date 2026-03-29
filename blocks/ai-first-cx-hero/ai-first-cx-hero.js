@@ -36,7 +36,8 @@ export default function decorate(block) {
 
   items.forEach((item, i) => {
     const active = i === 0 ? ' afc-active' : '';
-    const ctaHtml = item.cta ? `<a href="${item.cta.href}" class="afc-cta">${item.cta.text}<span class="afc-arrow">→</span></a>` : '';
+    const ctaLabel = item.cta?.text === 'Learn more' ? `aria-label="Learn more about ${item.heading}"` : '';
+    const ctaHtml = item.cta ? `<a href="${item.cta.href}" class="afc-cta" ${ctaLabel}>${item.cta.text}<span class="afc-arrow">→</span></a>` : '';
 
     accordionHtml += `
       <div class="afc-item${active}" data-idx="${i}">
