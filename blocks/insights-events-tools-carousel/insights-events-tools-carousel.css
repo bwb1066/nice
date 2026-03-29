@@ -1,0 +1,184 @@
+/* section */
+main > .section.insights-events-tools-carousel-container {
+  max-width: unset !important;
+  margin: 60px 0 0 !important;
+  padding: 60px 0 200px !important;
+  overflow: hidden !important;
+}
+
+main > .section.insights-events-tools-carousel-container > .default-content-wrapper {
+  max-width: unset !important;
+  padding: 0 14% !important;
+  margin: 0 0 32px !important;
+}
+
+main > .section.insights-events-tools-carousel-container > .default-content-wrapper h2,
+main > .section.insights-events-tools-carousel-container > .default-content-wrapper h2 strong,
+main > .section.insights-events-tools-carousel-container > .default-content-wrapper h3,
+main > .section.insights-events-tools-carousel-container > .default-content-wrapper h3 strong {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 36px;
+  font-weight: 500 !important;
+  line-height: 1.2;
+  color: rgb(34, 33, 43);
+  margin: 0 0 16px;
+}
+
+main > .section.insights-events-tools-carousel-container > .default-content-wrapper p {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgb(107, 107, 107);
+  margin: 0;
+}
+
+main > .section > .insights-events-tools-carousel-wrapper {
+  max-width: unset !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* header with arrows */
+.ietc-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 14% 24px;
+}
+
+.ietc-arrows {
+  display: flex;
+  gap: 12px;
+}
+
+.ietc-prev,
+.ietc-next {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgb(217, 215, 210);
+  background: white;
+  color: rgb(34, 33, 43);
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.ietc-next,
+.ietc-prev.ietc-active {
+  background: rgb(34, 33, 43);
+  color: white;
+  border-color: rgb(34, 33, 43);
+}
+
+.ietc-prev:hover,
+.ietc-next:hover {
+  opacity: 0.8;
+}
+
+.ietc-disabled {
+  opacity: 0.4 !important;
+  cursor: default;
+  pointer-events: none;
+}
+
+.ietc-next.ietc-disabled {
+  background: rgb(34, 33, 43);
+  color: white;
+  border-color: rgb(34, 33, 43);
+}
+
+/* viewport */
+.ietc-viewport {
+  overflow: hidden;
+  margin-bottom: 100px;
+}
+
+/* track */
+.ietc-track {
+  display: flex;
+  gap: 2%;
+  padding-left: 14%;
+  padding-right: 14%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* card */
+.ietc-card {
+  flex: 0 0 31%;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.ietc-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 40px;
+}
+
+.ietc-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+/* card body */
+.ietc-card-body {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: white;
+  border-radius: 35px;
+  margin: -230px 10px 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.ietc-cat {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgb(107, 107, 107);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.ietc-title {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgb(34, 33, 43);
+  margin: 0 0 auto;
+}
+
+/* arrow button */
+.ietc-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgb(34, 33, 43);
+  background: white;
+  color: rgb(34, 33, 43);
+  font-size: 18px;
+  text-decoration: none;
+  align-self: flex-end;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ietc-arrow:hover {
+  background: rgb(34, 33, 43);
+  color: white;
+}
