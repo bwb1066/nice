@@ -1,0 +1,104 @@
+/* section */
+main > .section.experience-cx-ai-platform-container {
+  max-width: unset !important;
+  margin: 0 !important;
+  padding: 60px 0 0 !important;
+  background: rgb(241, 240, 236);
+  overflow: hidden;
+}
+
+main > .section > .experience-cx-ai-platform-wrapper {
+  max-width: unset !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* content area */
+.experience-cx-ai-platform .ecap-content {
+  text-align: center;
+  padding: 0 14%;
+  margin-bottom: 32px;
+}
+
+/* heading */
+.experience-cx-ai-platform .ecap-heading,
+.experience-cx-ai-platform .ecap-heading strong {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 48px;
+  font-weight: 400 !important;
+  line-height: 1.25;
+  color: rgb(34, 33, 43);
+  margin: 0 0 32px;
+}
+
+/* cta buttons */
+.experience-cx-ai-platform .ecap-ctas {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.experience-cx-ai-platform .ecap-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.experience-cx-ai-platform .ecap-btn-primary {
+  background: rgb(34, 33, 43);
+  color: white;
+  border: 1px solid rgb(34, 33, 43);
+}
+
+.experience-cx-ai-platform .ecap-btn-primary:hover {
+  opacity: 0.85;
+}
+
+.experience-cx-ai-platform .ecap-btn-secondary {
+  background: transparent;
+  color: rgb(34, 33, 43);
+  border: 1px solid rgb(34, 33, 43);
+}
+
+.experience-cx-ai-platform .ecap-btn-secondary:hover {
+  background: rgb(34, 33, 43);
+  color: white;
+}
+
+/* play icon */
+.experience-cx-ai-platform .ecap-play-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid white;
+  font-size: 10px;
+  line-height: 1;
+}
+
+/* image */
+.experience-cx-ai-platform .ecap-image {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.experience-cx-ai-platform .ecap-image picture {
+  display: block;
+}
+
+.experience-cx-ai-platform .ecap-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
