@@ -32,7 +32,9 @@ export default function decorate(block) {
       if (a) ctas.push({ text: a.textContent, href: a.href });
       else if (p.textContent.trim()) body += `${p.textContent.trim()} `;
     });
-    return { videoSrc, heading, body: body.trim(), ctas };
+    return {
+      videoSrc, heading, body: body.trim(), ctas,
+    };
   });
 
   const labels = controlTds.map((td) => td.textContent.trim());
@@ -117,36 +119,51 @@ export default function decorate(block) {
   let cur = 0;
   let tmr;
 
+  function startTimer() {
+    clearTimeout(tmr);
+    root.querySelectorAll('.hcx-pb > div').forEach((b) => { b.style.transition = 'none'; b.style.width = '0'; });
+    const bar = root.querySelectorAll('.hcx-cb')[cur]?.querySelector('.hcx-pb > div');
+    if (bar) {
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        bar.style.transition = `width ${SLIDE_DURATION}ms linear`;
+        bar.style.width = '100%';
+      }));
+    }
+    tmr = setTimeout(() => {
+      const next = (cur + 1) % slides.length;
+      const prev = cur;
+      cur = next;
+      const allSlides = root.querySelectorAll('.hcx-s');
+      allSlides[prev].classList.remove('on');
+      allSlides[prev].classList.add('hcx-exit');
+      setTimeout(() => allSlides[prev].classList.remove('hcx-exit'), 400);
+      allSlides[next].classList.add('on');
+      root.querySelectorAll('.hcx-cb').forEach((c, i) => { c.classList.toggle('on', i === next); });
+      allSlides.forEach((s, i) => {
+        const v = s.querySelector('video');
+        if (v) { if (i === next) { v.currentTime = 0; v.play(); } else v.pause(); }
+      });
+      startTimer();
+    }, SLIDE_DURATION);
+  }
+
   function go(n) {
     if (n === cur) return;
     const prev = cur;
     cur = n;
     const allSlides = root.querySelectorAll('.hcx-s');
-
-    // Exit current slide left
     allSlides[prev].classList.remove('on');
     allSlides[prev].classList.add('hcx-exit');
     setTimeout(() => allSlides[prev].classList.remove('hcx-exit'), 400);
-
-    // Enter new slide from right
     allSlides[n].classList.add('on');
-
     root.querySelectorAll('.hcx-cb').forEach((c, i) => { c.classList.toggle('on', i === n); });
     allSlides.forEach((s, i) => {
       const v = s.querySelector('video');
       if (v) { if (i === n) { v.currentTime = 0; v.play(); } else v.pause(); }
     });
-    tick();
-  }
-
-  function tick() {
-    clearTimeout(tmr);
-    root.querySelectorAll('.hcx-pb > div').forEach((b) => { b.style.transition = 'none'; b.style.width = '0'; });
-    const bar = root.querySelectorAll('.hcx-cb')[cur]?.querySelector('.hcx-pb > div');
-    if (bar) requestAnimationFrame(() => requestAnimationFrame(() => { bar.style.transition = `width ${SLIDE_DURATION}ms linear`; bar.style.width = '100%'; }));
-    tmr = setTimeout(() => go((cur + 1) % slides.length), SLIDE_DURATION);
+    startTimer();
   }
 
   root.querySelectorAll('.hcx-cb').forEach((b) => b.addEventListener('click', () => go(+b.dataset.i)));
-  tick();
+  startTimer();
 }

@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 /* header and nav layout */
 header .nav-wrapper {
   width: 100%;
@@ -11,7 +13,7 @@ header .nav-wrapper {
 
 /* utility bar */
 header .nav-utility {
-  background-color: rgb(242, 240, 235);
+  background-color: rgb(242 240 235);
   height: 38px;
   display: none;
   visibility: hidden;
@@ -39,11 +41,11 @@ header .nav-utility ul li {
   font-size: 13px;
   font-weight: 300;
   line-height: 1;
-  color: rgb(153, 153, 153);
+  color: rgb(153 153 153);
 }
 
 header .nav-utility ul a:any-link {
-  color: rgb(153, 153, 153);
+  color: rgb(153 153 153);
   text-decoration: none;
 }
 
@@ -74,8 +76,8 @@ header .nav-lang-dropdown {
   right: 0;
   top: calc(100% + 8px);
   min-width: 140px;
-  background-color: rgb(242, 240, 235);
-  border: 1px solid rgb(217, 215, 210);
+  background-color: rgb(242 240 235);
+  border: 1px solid rgb(217 215 210);
   list-style: none;
   margin: 0;
   padding: 8px 0;
@@ -89,12 +91,12 @@ header .nav-lang-dropdown li {
 header .nav-lang-dropdown li a:any-link {
   display: block;
   padding: 6px 16px;
-  color: rgb(17, 24, 28);
+  color: rgb(17 24 28);
   text-decoration: none;
 }
 
 header .nav-lang-dropdown li a:hover {
-  background-color: rgb(229, 227, 222);
+  background-color: rgb(229 227 222);
 }
 
 @media (width >= 900px) {
@@ -106,7 +108,7 @@ header .nav-lang-dropdown li a:hover {
 
 /* main nav bar */
 header nav {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255 255 255);
   box-sizing: border-box;
   display: grid;
   grid-template:
@@ -117,7 +119,7 @@ header nav {
   height: var(--nav-height);
   padding: 0 14%;
   font-family: var(--body-font-family);
-  color: rgb(17, 24, 28);
+  color: rgb(17 24 28);
 }
 
 header nav[aria-expanded='true'] {
@@ -154,7 +156,7 @@ header nav p {
 }
 
 header nav a:any-link {
-  color: rgb(17, 24, 28);
+  color: rgb(17 24 28);
   text-decoration: none;
 }
 
@@ -277,15 +279,15 @@ header nav .nav-sections .default-content-wrapper > ul > li {
   font-size: 14px;
   font-weight: 300;
   line-height: 24px;
-  color: rgb(34, 33, 43);
+  color: rgb(34 33 43);
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   border-bottom: 2px solid transparent;
 }
 
 header nav .nav-sections .default-content-wrapper > ul > li:hover {
-  color: rgb(54, 148, 253);
-  border-bottom-color: rgb(54, 148, 253);
+  color: rgb(54 148 253);
+  border-bottom-color: rgb(54 148 253);
 }
 
 header nav .nav-sections .default-content-wrapper > ul > li > p > a {
@@ -368,17 +370,17 @@ header nav .nav-tool-demo a:any-link {
   justify-content: center;
   height: 40px;
   padding: 0 20px;
-  border: 1px solid rgb(242, 240, 235);
+  border: 1px solid rgb(242 240 235);
   border-radius: 20px;
-  background-color: rgb(242, 240, 235);
-  color: rgb(17, 24, 28);
+  background-color: rgb(242 240 235);
+  color: rgb(17 24 28);
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
 }
 
 header nav .nav-tool-demo a:hover {
-  background-color: rgb(229, 227, 222);
+  background-color: rgb(229 227 222);
 }
 
 header nav .nav-tool-cta a:any-link {
@@ -387,10 +389,10 @@ header nav .nav-tool-cta a:any-link {
   justify-content: center;
   height: 40px;
   padding: 0 20px;
-  border: 1px solid rgb(17, 24, 28);
+  border: 1px solid rgb(17 24 28);
   border-radius: 20px;
-  background-color: rgb(17, 24, 28);
-  color: rgb(255, 255, 255);
+  background-color: rgb(17 24 28);
+  color: rgb(255 255 255);
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
@@ -407,8 +409,8 @@ header nav .mega-menu {
   top: calc(38px + var(--nav-height));
   left: 19%;
   right: 19%;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  background-color: rgb(255 255 255);
+  box-shadow: 0 10px 40px rgb(0 0 0 / 10%);
   padding: 40px 40px 60px;
   z-index: 100;
   gap: 32px;
@@ -447,7 +449,7 @@ header nav .mega-menu-columns-layout .mega-menu-header {
   width: 75%;
   padding-bottom: 20px;
   margin-bottom: 24px;
-  border-bottom: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px solid rgb(230 230 230);
 }
 
 header nav .mega-menu-header-logo {
@@ -474,7 +476,7 @@ header nav .mega-menu-column {
 header nav .mega-menu-heading {
   font-size: 16px;
   font-weight: 600;
-  color: rgb(34, 33, 43);
+  color: rgb(34 33 43);
   margin: 0 0 20px;
   line-height: 1.4;
 }
@@ -503,7 +505,7 @@ header nav .mega-menu-item a {
 }
 
 header nav .mega-menu-item-title {
-  color: rgb(54, 148, 253);
+  color: rgb(54 148 253);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.4;
@@ -514,7 +516,7 @@ header nav .mega-menu-item a:hover .mega-menu-item-title {
 }
 
 header nav .mega-menu-item-desc {
-  color: rgb(107, 107, 107);
+  color: rgb(107 107 107);
   font-size: 13px;
   font-weight: 300;
   line-height: 1.4;
@@ -523,7 +525,7 @@ header nav .mega-menu-item-desc {
 /* promo card */
 header nav .mega-menu-promo {
   flex: 0 0 280px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255 255 255);
   border-radius: 12px;
   padding: 20px;
   display: flex;
@@ -546,7 +548,7 @@ header nav .mega-menu-promo picture img {
 header nav .mega-menu-promo-title {
   font-size: 16px;
   font-weight: 600;
-  color: rgb(34, 33, 43);
+  color: rgb(34 33 43);
   margin: 0 0 8px;
   line-height: 1.4;
 }
@@ -554,13 +556,13 @@ header nav .mega-menu-promo-title {
 header nav .mega-menu-promo-desc {
   font-size: 13px;
   font-weight: 300;
-  color: rgb(107, 107, 107);
+  color: rgb(107 107 107);
   margin: 0 0 16px;
   line-height: 1.5;
 }
 
 header nav .mega-menu-promo-cta {
-  color: rgb(54, 148, 253) !important;
+  color: rgb(54 148 253) !important;
   font-size: 14px;
   font-weight: 500;
   text-decoration: none !important;
@@ -596,9 +598,9 @@ header nav .mega-menu-tabbed-layout {
 
 header nav .mega-menu-sidebar {
   flex: 0 0 260px;
-  background-color: rgb(248, 248, 248);
+  background-color: rgb(248 248 248);
   padding: 32px 24px;
-  border-right: 1px solid rgb(230, 230, 230);
+  border-right: 1px solid rgb(230 230 230);
   border-bottom-left-radius: 16px;
   display: flex;
   flex-direction: column;
@@ -611,7 +613,7 @@ header nav .mega-menu-sidebar-section {
 header nav .mega-menu-sidebar-heading {
   font-size: 13px;
   font-weight: 400;
-  color: rgb(153, 153, 153);
+  color: rgb(153 153 153);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin: 0 0 8px;
@@ -628,19 +630,19 @@ header nav .mega-menu-tab {
   padding: 10px 12px;
   font-size: 14px;
   font-weight: 400;
-  color: rgb(34, 33, 43);
+  color: rgb(34 33 43);
   cursor: pointer;
   border-left: 3px solid transparent;
   transition: all 0.15s ease;
 }
 
 header nav .mega-menu-tab:hover {
-  color: rgb(54, 148, 253);
+  color: rgb(54 148 253);
 }
 
 header nav .mega-menu-tab.active {
-  color: rgb(54, 148, 253);
-  border-left-color: rgb(54, 148, 253);
+  color: rgb(54 148 253);
+  border-left-color: rgb(54 148 253);
   font-weight: 500;
 }
 
@@ -648,7 +650,7 @@ header nav .mega-menu-sidebar .mega-menu-view-all {
   margin-top: auto;
   padding: 10px 12px;
   font-size: 14px;
-  color: rgb(54, 148, 253);
+  color: rgb(54 148 253);
   text-decoration: none;
 }
 
@@ -676,7 +678,7 @@ header nav .mega-menu-panel-header {
   justify-content: space-between;
   align-items: flex-start;
   padding-bottom: 20px;
-  border-bottom: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px solid rgb(230 230 230);
   margin-bottom: 24px;
 }
 
@@ -694,7 +696,7 @@ header nav .mega-menu-panel-section {
 header nav .mega-menu-panel-subheading {
   font-size: 14px;
   font-weight: 600;
-  color: rgb(34, 33, 43);
+  color: rgb(34 33 43);
   margin: 0 0 16px;
   line-height: 1.4;
 }
@@ -722,7 +724,7 @@ header nav .mega-menu-header {
   justify-content: space-between;
   align-items: flex-start;
   padding-bottom: 20px;
-  border-bottom: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px solid rgb(230 230 230);
   margin-bottom: 24px;
 }
 
@@ -737,7 +739,7 @@ header nav .mega-menu-header .mega-menu-heading {
 header nav .mega-menu-header-desc {
   font-size: 13px;
   font-weight: 300;
-  color: rgb(107, 107, 107);
+  color: rgb(107 107 107);
   margin: 0;
   line-height: 1.4;
 }
@@ -745,9 +747,9 @@ header nav .mega-menu-header-desc {
 header nav .mega-menu-header-cta {
   display: inline-block;
   padding: 8px 20px;
-  border: 1px solid rgb(54, 148, 253);
+  border: 1px solid rgb(54 148 253);
   border-radius: 20px;
-  color: rgb(54, 148, 253);
+  color: rgb(54 148 253);
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
@@ -755,7 +757,7 @@ header nav .mega-menu-header-cta {
 }
 
 header nav .mega-menu-header-cta:hover {
-  background-color: rgb(54, 148, 253);
+  background-color: rgb(54 148 253);
   color: white;
 }
 
@@ -775,7 +777,7 @@ header nav .mega-menu-grid {
 header nav .mega-menu-view-all {
   display: inline-block;
   margin-top: 20px;
-  color: rgb(54, 148, 253);
+  color: rgb(54 148 253);
   font-size: 14px;
   font-weight: 400;
   text-decoration: none;

@@ -18,7 +18,7 @@ main > .section.ai-first-cx-hero-container > .default-content-wrapper h3 strong 
   font-size: 36px;
   font-weight: 500 !important;
   line-height: 1.2;
-  color: rgb(34, 33, 43);
+  color: rgb(34 33 43);
   margin: 0 0 16px;
 }
 
@@ -26,7 +26,7 @@ main > .section.ai-first-cx-hero-container > .default-content-wrapper p {
   font-size: 16px;
   font-weight: 300;
   line-height: 1.6;
-  color: rgb(107, 107, 107);
+  color: rgb(107 107 107);
   margin: 0;
 }
 
@@ -55,7 +55,7 @@ main > .section > .ai-first-cx-hero-wrapper {
 
 /* accordion items */
 .afc-item {
-  border-left: 1.5px solid rgb(230, 230, 230);
+  border-left: 1.5px solid rgb(230 230 230);
   padding: 12px 0 12px 20px;
   margin-bottom: 16px;
   cursor: pointer;
@@ -63,7 +63,7 @@ main > .section > .ai-first-cx-hero-wrapper {
 }
 
 .afc-item.afc-active {
-  border-left-color: rgb(230, 230, 230);
+  border-left-color: rgb(230 230 230);
 }
 
 .afc-item-header {
@@ -75,14 +75,14 @@ main > .section > .ai-first-cx-hero-wrapper {
 .afc-title {
   font-size: 16px;
   font-weight: 300;
-  color: rgb(170, 170, 170);
+  color: rgb(170 170 170);
   line-height: 1.4;
   transition: all 0.3s ease;
 }
 
 .afc-active .afc-title {
   font-weight: 600;
-  color: rgb(34, 33, 43);
+  color: rgb(34 33 43);
   font-size: 18px;
 }
 
@@ -138,7 +138,7 @@ main > .section > .ai-first-cx-hero-wrapper {
   font-size: 14px;
   font-weight: 300;
   line-height: 1.6;
-  color: rgb(107, 107, 107);
+  color: rgb(107 107 107);
   margin: 0 0 16px;
 }
 
@@ -147,7 +147,7 @@ main > .section > .ai-first-cx-hero-wrapper {
   align-items: center;
   gap: 8px;
   padding: 10px 20px;
-  background: rgb(34, 33, 43);
+  background: rgb(34 33 43);
   color: white !important;
   border-radius: 24px;
   font-size: 14px;
@@ -166,7 +166,7 @@ main > .section > .ai-first-cx-hero-wrapper {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgb(255 255 255 / 40%);
   font-size: 14px;
 }
 

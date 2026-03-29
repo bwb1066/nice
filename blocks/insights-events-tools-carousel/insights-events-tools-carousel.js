@@ -21,7 +21,7 @@ export default function decorate(block) {
   cards.forEach((c, i) => {
     const arrow = c.ctaHref
       ? `<a href="${c.ctaHref}" class="ietc-arrow"><span>→</span></a>`
-      : `<div class="ietc-arrow"><span>→</span></div>`;
+      : '<div class="ietc-arrow"><span>→</span></div>';
 
     cardsHtml += `
       <div class="ietc-card">

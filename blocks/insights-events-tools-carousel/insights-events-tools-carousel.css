@@ -20,7 +20,7 @@ main > .section.insights-events-tools-carousel-container > .default-content-wrap
   font-size: 36px;
   font-weight: 500 !important;
   line-height: 1.2;
-  color: rgb(34, 33, 43);
+  color: rgb(34 33 43);
   margin: 0 0 16px;
 }
 
@@ -28,7 +28,7 @@ main > .section.insights-events-tools-carousel-container > .default-content-wrap
   font-size: 16px;
   font-weight: 300;
   line-height: 1.6;
-  color: rgb(107, 107, 107);
+  color: rgb(107 107 107);
   margin: 0;
 }
 
@@ -55,9 +55,9 @@ main > .section > .insights-events-tools-carousel-wrapper {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid rgb(217, 215, 210);
+  border: 1px solid rgb(217 215 210);
   background: white;
-  color: rgb(34, 33, 43);
+  color: rgb(34 33 43);
   cursor: pointer;
   font-size: 18px;
   display: flex;
@@ -68,9 +68,9 @@ main > .section > .insights-events-tools-carousel-wrapper {
 
 .ietc-next,
 .ietc-prev.ietc-active {
-  background: rgb(34, 33, 43);
+  background: rgb(34 33 43);
   color: white;
-  border-color: rgb(34, 33, 43);
+  border-color: rgb(34 33 43);
 }
 
 .ietc-prev:hover,
@@ -85,9 +85,9 @@ main > .section > .insights-events-tools-carousel-wrapper {
 }
 
 .ietc-next.ietc-disabled {
-  background: rgb(34, 33, 43);
+  background: rgb(34 33 43);
   color: white;
-  border-color: rgb(34, 33, 43);
+  border-color: rgb(34 33 43);
 }
 
 /* viewport */
@@ -110,7 +110,7 @@ main > .section > .insights-events-tools-carousel-wrapper {
   flex: 0 0 31%;
   border-radius: 40px;
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 12px rgb(0 0 0 / 6%);
   display: flex;
   flex-direction: column;
 }
@@ -145,7 +145,7 @@ main > .section > .insights-events-tools-carousel-wrapper {
 .ietc-cat {
   font-size: 12px;
   font-weight: 400;
-  color: rgb(107, 107, 107);
+  color: rgb(107 107 107);
   margin-bottom: 8px;
   display: block;
 }
@@ -155,7 +155,7 @@ main > .section > .insights-events-tools-carousel-wrapper {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.4;
-  color: rgb(34, 33, 43);
+  color: rgb(34 33 43);
   margin: 0 0 auto;
 }
 
@@ -167,9 +167,9 @@ main > .section > .insights-events-tools-carousel-wrapper {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid rgb(34, 33, 43);
+  border: 1px solid rgb(34 33 43);
   background: white;
-  color: rgb(34, 33, 43);
+  color: rgb(34 33 43);
   font-size: 18px;
   text-decoration: none;
   align-self: flex-end;
@@ -179,6 +179,6 @@ main > .section > .insights-events-tools-carousel-wrapper {
 }
 
 .ietc-arrow:hover {
-  background: rgb(34, 33, 43);
+  background: rgb(34 33 43);
   color: white;
 }

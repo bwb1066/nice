@@ -8,8 +8,6 @@ export default function decorate(block) {
   const items = rows.map((row, i) => {
     const cols = [...row.children];
     const textCol = cols[0];
-    const imgCol = cols[2] || cols[1]; // large image is col 3
-
     const heading = textCol?.querySelector('h3')?.textContent.trim() || '';
     const desc = [...(textCol?.querySelectorAll('p') || [])].filter((p) => !p.querySelector('a')).map((p) => p.textContent.trim()).join(' ');
     const ctaEl = textCol?.querySelector('a');
@@ -81,10 +79,6 @@ export default function decorate(block) {
     current = idx;
     allItems.forEach((el, i) => el.classList.toggle('afc-active', i === idx));
     allImgs.forEach((el, i) => el.classList.toggle('afc-active', i === idx));
-    resetTimer();
-  }
-
-  function resetTimer() {
     clearInterval(timer);
     timer = setInterval(() => show((current + 1) % items.length), INTERVAL);
   }
@@ -95,5 +89,5 @@ export default function decorate(block) {
     });
   });
 
-  resetTimer();
+  show(0);
 }

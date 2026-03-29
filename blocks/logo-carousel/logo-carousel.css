@@ -12,7 +12,7 @@ main > .section.logo-carousel-container {
 
 /* block */
 .logo-carousel {
-  background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(242, 240, 235) 100%);
+  background: linear-gradient(180deg, rgb(255 255 255) 0%, rgb(242 240 235) 100%);
   padding: 40px 0 50px;
   overflow: hidden;
 }
@@ -22,7 +22,7 @@ main > .section.logo-carousel-container {
   text-align: center;
   font-size: 18px;
   font-weight: 600;
-  color: rgb(34, 33, 43);
+  color: rgb(34 33 43);
   margin: 0 0 40px;
   padding: 0 24px;
 }
@@ -31,7 +31,6 @@ main > .section.logo-carousel-container {
 .lc-track-wrapper {
   overflow: hidden;
   mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
 }
 
 /* scrolling track */

@@ -84,14 +84,14 @@ function buildPromoCard(p) {
   if (textParts.length >= 1) {
     const title = document.createElement('h4');
     title.classList.add('mega-menu-promo-title');
-    title.textContent = textParts[0];
+    [title.textContent] = textParts;
     card.append(title);
   }
 
   if (textParts.length >= 2) {
     const desc = document.createElement('p');
     desc.classList.add('mega-menu-promo-desc');
-    desc.textContent = textParts[1];
+    [, desc.textContent] = textParts;
     card.append(desc);
   }
 
@@ -275,19 +275,19 @@ function decorateMegaMenu(li, headerInfo) {
             const panelHeader = document.createElement('div');
             panelHeader.classList.add('mega-menu-panel-header');
 
-            const headerInfo = document.createElement('div');
+            const headerInfoEl = document.createElement('div');
             const title = document.createElement('h3');
             title.classList.add('mega-menu-heading');
-            title.textContent = headerParts[0] || tabP.textContent.split('|')[0].trim();
-            headerInfo.append(title);
+            [title.textContent] = headerParts.length ? headerParts : [tabP.textContent.split('|')[0].trim()];
+            headerInfoEl.append(title);
 
             if (headerParts[1]) {
               const desc = document.createElement('p');
               desc.classList.add('mega-menu-header-desc');
-              desc.textContent = headerParts[1];
-              headerInfo.append(desc);
+              [, desc.textContent] = headerParts;
+              headerInfoEl.append(desc);
             }
-            panelHeader.append(headerInfo);
+            panelHeader.append(headerInfoEl);
 
             if (headerLink) {
               const cta = document.createElement('a');
@@ -723,7 +723,7 @@ export default async function decorate(block) {
           if (firstLink) {
             const cleanLink = document.createElement('a');
             cleanLink.href = firstLink.href;
-            cleanLink.textContent = firstLink.textContent.trim().split('|')[0];
+            [cleanLink.textContent] = firstLink.textContent.trim().split('|');
             p.replaceChildren(cleanLink);
           } else {
             p.textContent = p.textContent.split('|')[0].trim();

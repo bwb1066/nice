@@ -72,7 +72,7 @@ main > .section.hero-carousel-container {
   font-weight: 300;
   line-height: 1.6;
   margin: 0 0 12px;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255 255 255 / 90%);
 }
 
 /* CTA buttons */
@@ -91,14 +91,14 @@ main > .section.hero-carousel-container {
 }
 
 .hc-cta-dark {
-  background: rgb(34, 33, 43) !important;
+  background: rgb(34 33 43) !important;
   color: white !important;
-  border: 1px solid rgb(34, 33, 43) !important;
+  border: 1px solid rgb(34 33 43) !important;
 }
 
 .hc-cta-light {
   background: white !important;
-  color: rgb(34, 33, 43) !important;
+  color: rgb(34 33 43) !important;
   border: 1px solid white !important;
 }
 
@@ -133,7 +133,7 @@ main > .section.hero-carousel-container {
   display: block;
   font-size: 14px;
   font-weight: 400;
-  color: rgb(34, 33, 43);
+  color: rgb(34 33 43);
   margin-bottom: 8px;
 }
 
@@ -144,7 +144,7 @@ main > .section.hero-carousel-container {
 .hc-progress {
   width: 100%;
   height: 3px;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgb(0 0 0 / 15%);
   border-radius: 2px;
   overflow: hidden;
 }
@@ -152,6 +152,6 @@ main > .section.hero-carousel-container {
 .hc-bar {
   height: 100%;
   width: 0;
-  background: rgb(54, 148, 253);
+  background: rgb(54 148 253);
   border-radius: 2px;
 }

@@ -3,7 +3,7 @@ main > .section.experience-cx-ai-platform-container {
   max-width: unset !important;
   margin: 0 !important;
   padding: 60px 0 0 !important;
-  background: rgb(241, 240, 236);
+  background: rgb(241 240 236);
   overflow: hidden;
 }
 
@@ -27,7 +27,7 @@ main > .section > .experience-cx-ai-platform-wrapper {
   font-size: 48px;
   font-weight: 400 !important;
   line-height: 1.25;
-  color: rgb(34, 33, 43);
+  color: rgb(34 33 43);
   margin: 0 0 32px;
 }
 
@@ -53,9 +53,9 @@ main > .section > .experience-cx-ai-platform-wrapper {
 }
 
 .experience-cx-ai-platform .ecap-btn-primary {
-  background: rgb(34, 33, 43);
+  background: rgb(34 33 43);
   color: white;
-  border: 1px solid rgb(34, 33, 43);
+  border: 1px solid rgb(34 33 43);
 }
 
 .experience-cx-ai-platform .ecap-btn-primary:hover {
@@ -64,12 +64,12 @@ main > .section > .experience-cx-ai-platform-wrapper {
 
 .experience-cx-ai-platform .ecap-btn-secondary {
   background: transparent;
-  color: rgb(34, 33, 43);
-  border: 1px solid rgb(34, 33, 43);
+  color: rgb(34 33 43);
+  border: 1px solid rgb(34 33 43);
 }
 
 .experience-cx-ai-platform .ecap-btn-secondary:hover {
-  background: rgb(34, 33, 43);
+  background: rgb(34 33 43);
   color: white;
 }
 
