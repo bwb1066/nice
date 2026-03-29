@@ -4,7 +4,8 @@ export default function decorate(block) {
   const rows = [...block.children];
 
   // Extract accordion items from rows
-  const items = rows.map((row) => {
+  const featurePictures = [];
+  const items = rows.map((row, i) => {
     const cols = [...row.children];
     const textCol = cols[0];
     const imgCol = cols[2] || cols[1]; // large image is col 3
@@ -20,17 +21,13 @@ export default function decorate(block) {
     const expandIcon = iconPics[0]?.querySelector('img')?.src || '';
     const collapseIcon = iconPics[1]?.querySelector('img')?.src || '';
 
-    // Get feature image from col 3
-    let imgSrc = '';
+    // Get feature picture from col 3
     const featureCol = cols[2];
-    const pic = featureCol?.querySelector('picture');
-    if (pic) {
-      const src = pic.querySelector('source[media*="600"]');
-      const img = pic.querySelector('img');
-      imgSrc = src?.srcset || img?.src || '';
-    }
+    featurePictures[i] = featureCol?.querySelector('picture') || null;
 
-    return { heading, desc, cta, imgSrc, expandIcon, collapseIcon };
+    return {
+      heading, desc, cta, expandIcon, collapseIcon,
+    };
   });
 
   // Build HTML
@@ -57,7 +54,7 @@ export default function decorate(block) {
       </div>
     `;
 
-    imagesHtml += `<div class="afc-img${active}" data-idx="${i}"><img src="${item.imgSrc}" alt="${item.heading}" loading="lazy"></div>`;
+    imagesHtml += `<div class="afc-img${active}" data-idx="${i}" data-feature-pic="${i}"></div>`;
   });
 
   block.innerHTML = `
@@ -66,6 +63,12 @@ export default function decorate(block) {
       <div class="afc-images">${imagesHtml}</div>
     </div>
   `;
+
+  // Replace image placeholders with original picture elements
+  block.querySelectorAll('[data-feature-pic]').forEach((el) => {
+    const pic = featurePictures[el.dataset.featurePic];
+    if (pic) el.appendChild(pic);
+  });
 
   // Logic
   let current = 0;

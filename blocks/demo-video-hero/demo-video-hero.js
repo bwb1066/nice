@@ -12,8 +12,6 @@ export default function decorate(block) {
   // Find poster image and video URL from the table
   const poster = col.querySelector('table picture');
   const videoLink = col.querySelector('table a[href*="vidyard"], table a[href*=".mp4"]');
-
-  const posterSrc = poster?.querySelector('source[media*="600"]')?.srcset || poster?.querySelector('img')?.src || '';
   const videoUrl = videoLink?.href || '';
 
   block.innerHTML = `
@@ -22,7 +20,7 @@ export default function decorate(block) {
       ${descHtml}
     </div>
     <div class="dvh-video-wrap">
-      <img class="dvh-poster" src="${posterSrc}" alt="" role="presentation">
+      <div data-poster-pic></div>
       <button class="dvh-play" type="button" aria-label="Watch the demo">
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="24" cy="24" r="23" stroke="white" stroke-width="2"/>
@@ -32,6 +30,13 @@ export default function decorate(block) {
       </button>
     </div>
   `;
+
+  // Replace poster placeholder with original picture
+  const placeholder = block.querySelector('[data-poster-pic]');
+  if (poster && placeholder) {
+    poster.classList.add('dvh-poster');
+    placeholder.replaceWith(poster);
+  }
 
   const playBtn = block.querySelector('.dvh-play');
   if (playBtn && videoUrl) {

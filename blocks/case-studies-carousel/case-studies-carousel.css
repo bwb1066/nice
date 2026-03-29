@@ -65,8 +65,12 @@ main > .section > .case-studies-carousel-wrapper {
 
 .csc-logo {
   width: 240px;
-  height: auto;
   margin-bottom: 24px;
+}
+
+.csc-logo img {
+  width: 100%;
+  height: auto;
 }
 
 .csc-title {

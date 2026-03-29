@@ -11,14 +11,11 @@ export default function decorate(block) {
 
     const [bgCol, headingCol] = [...heroRow.children];
     const bgPic = bgCol?.querySelector('picture');
-    const bgImg = bgPic?.querySelector('img');
-    const bgSrc = bgPic?.querySelector('source[media*="600"]')?.srcset || bgImg?.src || '';
 
     const h2 = headingCol?.querySelector('h2');
     let logoPic = h2?.querySelector('picture');
     if (!logoPic?.querySelector('img')) logoPic = headingCol?.querySelector('picture');
-    const logoImg = logoPic?.querySelector('img');
-    const logoSrc = logoPic?.querySelector('source[media*="600"]')?.srcset || logoImg?.src || '';
+    const logoNavPic = logoPic ? logoPic.cloneNode(true) : null;
     const title = (h2?.textContent.trim() || headingCol?.textContent.trim() || '').replace(/\s+/g, ' ');
 
     const statCols = statsRow ? [...statsRow.children] : [];
@@ -28,13 +25,15 @@ export default function decorate(block) {
       desc: descCols[si]?.textContent.trim() || '',
     })).filter((s) => s.value);
 
-    studies.push({ bgSrc, logoSrc, title, stats });
+    studies.push({
+      bgPic, logoPic, logoNavPic, title, stats,
+    });
   }
 
   let slidesHtml = '';
   let logosHtml = '';
 
-  studies.forEach((s) => {
+  studies.forEach((s, i) => {
     const statsHtml = s.stats.map((st) => `
       <div class="csc-stat">
         <div class="csc-stat-value">${st.value}</div>
@@ -45,16 +44,16 @@ export default function decorate(block) {
     slidesHtml += `
       <div class="csc-slide">
         <div class="csc-content">
-          ${s.logoSrc ? `<img class="csc-logo" src="${s.logoSrc}" alt="${s.title}">` : ''}
+          <div class="csc-logo" data-logo-pic="${i}"></div>
           <h3 class="csc-title">${s.title}</h3>
           <div class="csc-stats">${statsHtml}</div>
           <div class="csc-learn">Learn more <span>→</span></div>
         </div>
-        <div class="csc-bg"><img src="${s.bgSrc}" alt="" role="presentation"></div>
+        <div class="csc-bg" data-bg-pic="${i}"></div>
       </div>
     `;
 
-    logosHtml += `<button class="csc-logo-btn" type="button" aria-label="View ${s.title} case study"><img src="${s.logoSrc}" alt="${s.title}"></button>`;
+    logosHtml += `<button class="csc-logo-btn" type="button" aria-label="View ${s.title} case study" data-nav-pic="${i}"></button>`;
   });
 
   block.innerHTML = `
@@ -69,6 +68,18 @@ export default function decorate(block) {
       </div>
     </div>
   `;
+
+  // Replace placeholders with original picture elements
+  studies.forEach((s, i) => {
+    const bgEl = block.querySelector(`[data-bg-pic="${i}"]`);
+    if (bgEl && s.bgPic) bgEl.appendChild(s.bgPic);
+
+    const logoEl = block.querySelector(`[data-logo-pic="${i}"]`);
+    if (logoEl && s.logoPic) logoEl.appendChild(s.logoPic);
+
+    const navEl = block.querySelector(`[data-nav-pic="${i}"]`);
+    if (navEl && s.logoNavPic) navEl.appendChild(s.logoNavPic);
+  });
 
   const track = block.querySelector('.csc-track');
   const allSlides = block.querySelectorAll('.csc-slide');

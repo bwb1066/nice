@@ -17,16 +17,12 @@ export default function decorate(block) {
   }
 
   // Extract data before clearing
-  const slides = rows.map((row) => {
+  const slidePictures = [];
+  const slides = rows.map((row, i) => {
     const [mediaCol, contentCol] = [...row.children];
     const picture = mediaCol?.querySelector('picture');
     const videoLink = mediaCol?.querySelector('a[href$=".mp4"]');
-    let bgImgSrc = '';
-    if (picture) {
-      const src = picture.querySelector('source[media*="600"]');
-      const img = picture.querySelector('img');
-      bgImgSrc = src?.srcset || img?.src || '';
-    }
+    slidePictures[i] = picture || null;
     const videoSrc = videoLink?.href || '';
     const heading = contentCol?.querySelector('h1,h2,h3')?.innerHTML || '';
     let body = '';
@@ -36,7 +32,7 @@ export default function decorate(block) {
       if (a) ctas.push({ text: a.textContent, href: a.href });
       else if (p.textContent.trim()) body += `${p.textContent.trim()} `;
     });
-    return { bgImgSrc, videoSrc, heading, body: body.trim(), ctas };
+    return { videoSrc, heading, body: body.trim(), ctas };
   });
 
   const labels = controlTds.map((td) => td.textContent.trim());
@@ -49,7 +45,7 @@ export default function decorate(block) {
       .hcx-s { position:absolute; top:0; left:0; width:100%; height:100%; transform:translateX(100%); transition:transform .4s cubic-bezier(.4,0,.2,1); pointer-events:none; z-index:0; }
       .hcx-s.on { transform:translateX(0); pointer-events:auto; z-index:1; }
       .hcx-s.hcx-exit { transform:translateX(-100%); z-index:0; }
-      .hcx-s > img, .hcx-s > video { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:top; }
+      .hcx-s > picture, .hcx-s > picture img, .hcx-s > video { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:top; }
       .hcx-c { position:absolute; top:0; left:0; bottom:20%; width:55%; z-index:2; display:flex; flex-direction:column; justify-content:center; padding:0 5% 0 8%; box-sizing:border-box; }
       .hcx-c.hcx-centered { left:0; width:100%; top:auto; bottom:20%; align-items:center; text-align:center; padding:0 8%; justify-content:flex-end; padding-bottom:15px; }
       .hcx-discover { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:white; border-radius:30px; font-size:16px; font-weight:500; color:rgb(34,33,43); cursor:pointer; }
@@ -76,7 +72,7 @@ export default function decorate(block) {
   let sh = '';
   slides.forEach((s, i) => {
     let bg = '';
-    if (s.bgImgSrc) bg = `<img src="${s.bgImgSrc}" alt="" role="presentation">`;
+    if (slidePictures[i]) bg = `<div data-slide-pic="${i}"></div>`;
     else if (s.videoSrc) bg = `<video autoplay muted loop playsinline><source src="${s.videoSrc}" type="video/mp4"></video>`;
 
     let btns = '';
@@ -106,6 +102,16 @@ export default function decorate(block) {
 
   block.innerHTML = `${css}<div class="hcx"><div class="hcx-slides">${sh}</div><div class="hcx-ctrls">${ch}</div></div>`;
 
+  // Replace picture placeholders
+  block.querySelectorAll('[data-slide-pic]').forEach((el) => {
+    const pic = slidePictures[el.dataset.slidePic];
+    if (pic) {
+      const slide = el.parentElement;
+      slide.insertBefore(pic, el);
+      el.remove();
+    }
+  });
+
   // Logic
   const root = block.querySelector('.hcx');
   let cur = 0;
@@ -115,18 +121,18 @@ export default function decorate(block) {
     if (n === cur) return;
     const prev = cur;
     cur = n;
-    const slides = root.querySelectorAll('.hcx-s');
+    const allSlides = root.querySelectorAll('.hcx-s');
 
     // Exit current slide left
-    slides[prev].classList.remove('on');
-    slides[prev].classList.add('hcx-exit');
-    setTimeout(() => slides[prev].classList.remove('hcx-exit'), 400);
+    allSlides[prev].classList.remove('on');
+    allSlides[prev].classList.add('hcx-exit');
+    setTimeout(() => allSlides[prev].classList.remove('hcx-exit'), 400);
 
     // Enter new slide from right
-    slides[n].classList.add('on');
+    allSlides[n].classList.add('on');
 
     root.querySelectorAll('.hcx-cb').forEach((c, i) => { c.classList.toggle('on', i === n); });
-    slides.forEach((s, i) => {
+    allSlides.forEach((s, i) => {
       const v = s.querySelector('video');
       if (v) { if (i === n) { v.currentTime = 0; v.play(); } else v.pause(); }
     });
