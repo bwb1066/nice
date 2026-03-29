@@ -5,6 +5,17 @@ export default function decorate(block) {
   const controlsRow = rows.pop();
   const controlTds = [...controlsRow.querySelectorAll('tr:last-child td')];
 
+  // Check for a "Discover more" row (colspan=3, between block name and controls)
+  const allTrs = [...controlsRow.querySelectorAll('tr')];
+  let discoverMoreHtml = '';
+  if (allTrs.length >= 3) {
+    const middleRow = allTrs[1];
+    const cell = middleRow.querySelector('td[colspan]');
+    if (cell) {
+      discoverMoreHtml = cell.innerHTML;
+    }
+  }
+
   // Extract data before clearing
   const slides = rows.map((row) => {
     const [mediaCol, contentCol] = [...row.children];
@@ -39,7 +50,10 @@ export default function decorate(block) {
       .hcx-s.on { opacity:1; pointer-events:auto; z-index:1; }
       .hcx-s > img, .hcx-s > video { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:top; }
       .hcx-c { position:absolute; top:0; left:0; bottom:20%; width:55%; z-index:2; display:flex; flex-direction:column; justify-content:center; padding:0 5% 0 8%; box-sizing:border-box; }
-      .hcx-c.hcx-centered { left:0; width:100%; align-items:center; text-align:center; padding:0 8%; }
+      .hcx-c.hcx-centered { left:0; width:100%; top:auto; bottom:20%; align-items:center; text-align:center; padding:0 8%; justify-content:flex-end; padding-bottom:15px; }
+      .hcx-discover { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:white; border-radius:30px; font-size:16px; font-weight:500; color:rgb(34,33,43); cursor:pointer; }
+      .hcx-discover .icon-blue-arrow { display:inline-flex; align-items:center; }
+      .hcx-discover .icon-blue-arrow img { width:24px; height:24px; }
       .hcx-c h2, .hcx-c h2 strong { font-size:54px; font-weight:500 !important; line-height:65px; margin:0 0 20px; color:#fff; }
       .hcx-c .button-container { display:inline; }
       .hcx-c a.button { all:unset; cursor:pointer; }
@@ -69,11 +83,15 @@ export default function decorate(block) {
       btns += `<a href="${c.href}" class="hcx-btn ${ci === 0 ? 'hcx-dark' : 'hcx-light'}">${c.text}</a>`;
     });
 
+    // For the last slide with no heading/body, inject "Discover more" from controls table
+    const isLastEmpty = !s.heading && !s.body && i === slides.length - 1 && discoverMoreHtml;
     const centered = !s.heading && !s.body ? ' hcx-centered' : '';
-    const content = (s.heading || s.body || btns) ? `<div class="hcx-c${centered}">
+    const discoverBtn = isLastEmpty ? `<div class="hcx-discover">${discoverMoreHtml}</div>` : '';
+    const content = (s.heading || s.body || btns || discoverBtn) ? `<div class="hcx-c${centered}">
       ${s.heading ? `<h2>${s.heading}</h2>` : ''}
       ${s.body ? `<p>${s.body}</p>` : ''}
       ${btns ? `<div>${btns}</div>` : ''}
+      ${discoverBtn}
     </div>` : '';
 
     sh += `<div class="hcx-s${i === 0 ? ' on' : ''}" data-i="${i}">${bg}${content}</div>`;
@@ -98,7 +116,7 @@ export default function decorate(block) {
     root.querySelectorAll('.hcx-cb').forEach((c, i) => { c.classList.toggle('on', i === n); });
     root.querySelectorAll('.hcx-s').forEach((s, i) => {
       const v = s.querySelector('video');
-      if (v) { if (i === n) v.play(); else v.pause(); }
+      if (v) { if (i === n) { v.currentTime = 0; v.play(); } else v.pause(); }
     });
     tick();
   }

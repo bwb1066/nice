@@ -103,8 +103,17 @@ function buildPromoCard(p) {
     cta.href = ctaLink.href;
     cta.classList.add('mega-menu-promo-cta');
     cta.textContent = ctaLink.textContent;
-    const arrow = p.querySelector('.icon-blue-arrow');
-    if (arrow) cta.append(arrow);
+    const arrow = p.querySelector('.icon-blue-arrow, .icon-link-arrow-right');
+    if (arrow) {
+      cta.append(arrow);
+    } else {
+      // Add arrow icon fallback
+      const arrowImg = document.createElement('img');
+      arrowImg.src = '/icons/link-arrow-right.svg';
+      arrowImg.alt = '';
+      arrowImg.classList.add('mega-menu-cta-arrow');
+      cta.append(arrowImg);
+    }
     card.append(cta);
   }
 
@@ -119,19 +128,34 @@ function buildPromoCard(p) {
 function buildMenuItem(link) {
   const menuItem = document.createElement('li');
   menuItem.classList.add('mega-menu-item');
-  const parts = link.textContent.split('|').map((s) => s.trim());
+
+  // Title from link text (before any |)
+  const linkParts = link.textContent.split('|').map((s) => s.trim());
+  const title = linkParts[0];
+  let desc = linkParts[1] || '';
+
+  // If no description in link text, check sibling text nodes in parent <li>
+  if (!desc && link.parentElement) {
+    link.parentElement.childNodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const text = node.textContent.replace(/^\|/, '').trim();
+        if (text) desc = text;
+      }
+    });
+  }
+
   const itemLink = document.createElement('a');
   itemLink.href = link.href;
 
   const titleSpan = document.createElement('span');
   titleSpan.classList.add('mega-menu-item-title');
-  titleSpan.textContent = parts[0];
+  titleSpan.textContent = title;
   itemLink.append(titleSpan);
 
-  if (parts[1]) {
+  if (desc) {
     const descSpan = document.createElement('span');
     descSpan.classList.add('mega-menu-item-desc');
-    descSpan.textContent = parts[1];
+    descSpan.textContent = desc;
     itemLink.append(descSpan);
   }
 
