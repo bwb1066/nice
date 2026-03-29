@@ -76,7 +76,7 @@ export default function decorate(block) {
   let sh = '';
   slides.forEach((s, i) => {
     let bg = '';
-    if (s.bgImgSrc) bg = `<img src="${s.bgImgSrc}" alt="">`;
+    if (s.bgImgSrc) bg = `<img src="${s.bgImgSrc}" alt="" role="presentation">`;
     else if (s.videoSrc) bg = `<video autoplay muted loop playsinline><source src="${s.videoSrc}" type="video/mp4"></video>`;
 
     let btns = '';

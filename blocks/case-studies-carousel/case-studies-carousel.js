@@ -45,16 +45,16 @@ export default function decorate(block) {
     slidesHtml += `
       <div class="csc-slide">
         <div class="csc-content">
-          ${s.logoSrc ? `<img class="csc-logo" src="${s.logoSrc}" alt="">` : ''}
+          ${s.logoSrc ? `<img class="csc-logo" src="${s.logoSrc}" alt="${s.title}">` : ''}
           <h3 class="csc-title">${s.title}</h3>
           <div class="csc-stats">${statsHtml}</div>
           <div class="csc-learn">Learn more <span>→</span></div>
         </div>
-        <div class="csc-bg"><img src="${s.bgSrc}" alt=""></div>
+        <div class="csc-bg"><img src="${s.bgSrc}" alt="" role="presentation"></div>
       </div>
     `;
 
-    logosHtml += `<button class="csc-logo-btn" type="button"><img src="${s.logoSrc}" alt=""></button>`;
+    logosHtml += `<button class="csc-logo-btn" type="button" aria-label="View ${s.title} case study"><img src="${s.logoSrc}" alt="${s.title}"></button>`;
   });
 
   block.innerHTML = `

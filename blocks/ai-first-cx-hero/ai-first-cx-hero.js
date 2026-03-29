@@ -46,8 +46,8 @@ export default function decorate(block) {
         <div class="afc-item-header">
           <span class="afc-title">${item.heading}</span>
           <span class="afc-icon">
-            <img class="afc-icon-expand" src="${item.expandIcon}" alt="">
-            <img class="afc-icon-collapse" src="${item.collapseIcon}" alt="">
+            <img class="afc-icon-expand" src="${item.expandIcon}" alt="" role="presentation">
+            <img class="afc-icon-collapse" src="${item.collapseIcon}" alt="" role="presentation">
           </span>
         </div>
         <div class="afc-item-body">
@@ -57,7 +57,7 @@ export default function decorate(block) {
       </div>
     `;
 
-    imagesHtml += `<div class="afc-img${active}" data-idx="${i}"><img src="${item.imgSrc}" alt="" loading="lazy"></div>`;
+    imagesHtml += `<div class="afc-img${active}" data-idx="${i}"><img src="${item.imgSrc}" alt="${item.heading}" loading="lazy"></div>`;
   });
 
   block.innerHTML = `

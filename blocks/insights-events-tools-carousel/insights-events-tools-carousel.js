@@ -24,7 +24,7 @@ export default function decorate(block) {
 
     cardsHtml += `
       <div class="ietc-card">
-        <div class="ietc-img"><img src="${c.imgSrc}" alt="" loading="lazy"></div>
+        <div class="ietc-img"><img src="${c.imgSrc}" alt="${c.title}" loading="lazy"></div>
         <div class="ietc-card-body">
           ${c.category ? `<span class="ietc-cat">${c.category}</span>` : ''}
           <h4 class="ietc-title">${c.title}</h4>
