@@ -1,0 +1,223 @@
+/* section */
+main > .section.case-studies-carousel-container {
+  background-color: #f2f0eb !important;
+  max-width: unset !important;
+  margin: 0 !important;
+  padding: 60px 0 80px !important;
+  overflow: hidden !important;
+}
+
+main > .section > .case-studies-carousel-wrapper {
+  max-width: unset !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.case-studies-carousel {
+  overflow: visible;
+}
+
+/* viewport clips overflow */
+.csc-viewport {
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+/* track holds all slides in a row */
+.csc-track {
+  display: flex;
+  gap: 2%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* each slide */
+.csc-slide {
+  display: flex;
+  flex: 0 0 67%;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 540px;
+  position: relative;
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+}
+
+.csc-slide.csc-active {
+  opacity: 1;
+}
+
+/* content panel — left, floating over image */
+.csc-content {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  width: 42%;
+  background: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.csc-logo {
+  width: 240px;
+  height: auto;
+  margin-bottom: 24px;
+}
+
+.csc-title {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: rgb(34, 33, 43);
+  margin: 0 0 32px;
+}
+
+/* stats */
+.csc-stats {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.csc-stat {
+  border-left: 2px solid rgb(54, 148, 253);
+  padding-left: 16px;
+}
+
+.csc-stat-value {
+  font-size: 40px;
+  font-weight: 600;
+  color: rgb(34, 33, 43);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.csc-stat-desc {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgb(107, 107, 107);
+  line-height: 1.4;
+}
+
+/* learn more */
+.csc-learn {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(34, 33, 43);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.csc-learn span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgb(34, 33, 43);
+  font-size: 14px;
+}
+
+/* background image — full width */
+.csc-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.csc-bg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* nav */
+.csc-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14%;
+}
+
+.csc-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex: 1;
+}
+
+.csc-logo-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+  padding: 8px;
+}
+
+.csc-logo-btn.csc-active {
+  opacity: 1;
+}
+
+.csc-logo-btn:hover {
+  opacity: 0.8;
+}
+
+.csc-logo-btn img {
+  height: 50px;
+  width: auto;
+  max-width: 120px;
+  display: block;
+  filter: grayscale(100%);
+  object-fit: contain;
+}
+
+.csc-logo-btn.csc-active img {
+  filter: none;
+}
+
+/* arrows */
+.csc-arrows {
+  display: flex;
+  gap: 12px;
+}
+
+.csc-prev,
+.csc-next {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgb(34, 33, 43);
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.csc-prev:hover,
+.csc-next:hover {
+  opacity: 0.8;
+}
+
+.csc-prev.csc-disabled,
+.csc-next.csc-disabled {
+  background: rgb(217, 215, 210);
+  color: rgb(150, 150, 150);
+  cursor: default;
+  pointer-events: none;
+}

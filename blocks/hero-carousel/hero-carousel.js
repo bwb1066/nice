@@ -46,8 +46,9 @@ export default function decorate(block) {
     <style>
       .hcx { position:relative; width:100%; height:800px; overflow:hidden; }
       .hcx-slides { position:relative; width:100%; height:100%; }
-      .hcx-s { position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; transition:opacity .6s; pointer-events:none; }
-      .hcx-s.on { opacity:1; pointer-events:auto; z-index:1; }
+      .hcx-s { position:absolute; top:0; left:0; width:100%; height:100%; transform:translateX(100%); transition:transform .4s cubic-bezier(.4,0,.2,1); pointer-events:none; z-index:0; }
+      .hcx-s.on { transform:translateX(0); pointer-events:auto; z-index:1; }
+      .hcx-s.hcx-exit { transform:translateX(-100%); z-index:0; }
       .hcx-s > img, .hcx-s > video { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:top; }
       .hcx-c { position:absolute; top:0; left:0; bottom:20%; width:55%; z-index:2; display:flex; flex-direction:column; justify-content:center; padding:0 5% 0 8%; box-sizing:border-box; }
       .hcx-c.hcx-centered { left:0; width:100%; top:auto; bottom:20%; align-items:center; text-align:center; padding:0 8%; justify-content:flex-end; padding-bottom:15px; }
@@ -111,10 +112,21 @@ export default function decorate(block) {
   let tmr;
 
   function go(n) {
+    if (n === cur) return;
+    const prev = cur;
     cur = n;
-    root.querySelectorAll('.hcx-s').forEach((s, i) => { s.classList.toggle('on', i === n); });
+    const slides = root.querySelectorAll('.hcx-s');
+
+    // Exit current slide left
+    slides[prev].classList.remove('on');
+    slides[prev].classList.add('hcx-exit');
+    setTimeout(() => slides[prev].classList.remove('hcx-exit'), 400);
+
+    // Enter new slide from right
+    slides[n].classList.add('on');
+
     root.querySelectorAll('.hcx-cb').forEach((c, i) => { c.classList.toggle('on', i === n); });
-    root.querySelectorAll('.hcx-s').forEach((s, i) => {
+    slides.forEach((s, i) => {
       const v = s.querySelector('video');
       if (v) { if (i === n) { v.currentTime = 0; v.play(); } else v.pause(); }
     });
