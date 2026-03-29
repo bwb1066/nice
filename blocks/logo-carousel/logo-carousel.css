@@ -12,7 +12,7 @@ main > .section.logo-carousel-container {
 
 /* block */
 .logo-carousel {
-  background: linear-gradient(180deg, rgb(242, 240, 235) 0%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(242, 240, 235) 100%);
   padding: 40px 0 50px;
   overflow: hidden;
 }

@@ -1,0 +1,104 @@
+/* section — dark background with centered text */
+main > .section.demo-video-hero-container {
+  background-color: rgb(34, 33, 43) !important;
+  padding: 100px 24px 80px !important;
+  margin: 0 !important;
+  text-align: center;
+}
+
+/* text above video */
+.dvh-text {
+  max-width: 800px;
+  margin: 0 auto 70px;
+  text-align: center;
+}
+
+.dvh-text h2,
+.dvh-text h3,
+.dvh-text h4,
+.dvh-text h2 strong,
+.dvh-text h3 strong,
+.dvh-text h4 strong {
+  color: white !important;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 36px;
+  font-weight: 500 !important;
+  line-height: 43px;
+  margin: 0 0 16px;
+}
+
+.dvh-text p {
+  color: rgb(255, 255, 255) !important;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 0;
+}
+
+/* block wrapper */
+main > .section > .demo-video-hero-wrapper {
+  max-width: 1296px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+/* block */
+.demo-video-hero {
+  position: relative;
+}
+
+/* video wrapper */
+.dvh-video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgb(20, 20, 30);
+}
+
+.dvh-poster {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dvh-video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+/* play button */
+.dvh-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  border-radius: 32px;
+  padding: 12px 24px 12px 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dvh-play:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.dvh-play svg {
+  flex-shrink: 0;
+}
+
+.dvh-play span {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+}

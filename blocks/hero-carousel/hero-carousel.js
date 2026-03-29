@@ -40,7 +40,7 @@ export default function decorate(block) {
       .hcx-s > img, .hcx-s > video { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:top; }
       .hcx-c { position:absolute; top:0; left:0; bottom:20%; width:55%; z-index:2; display:flex; flex-direction:column; justify-content:center; padding:0 5% 0 8%; box-sizing:border-box; }
       .hcx-c.hcx-centered { left:0; width:100%; align-items:center; text-align:center; padding:0 8%; }
-      .hcx-c h2 { font-size:48px; font-weight:700; line-height:1.15; margin:0 0 20px; color:#fff; }
+      .hcx-c h2, .hcx-c h2 strong { font-size:54px; font-weight:500 !important; line-height:65px; margin:0 0 20px; color:#fff; }
       .hcx-c .button-container { display:inline; }
       .hcx-c a.button { all:unset; cursor:pointer; }
       .hcx-c a.button::after { display:none; }

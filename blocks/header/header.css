@@ -1,8 +1,10 @@
 /* header and nav layout */
 header .nav-wrapper {
   width: 100%;
-  z-index: 2;
+  z-index: 100;
   position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
 }
@@ -129,7 +131,7 @@ header nav[aria-expanded='true'] {
 
 @media (width >= 900px) {
   header .nav-wrapper {
-    position: relative;
+    position: fixed;
   }
 
   header nav {
@@ -565,9 +567,14 @@ header nav .mega-menu-promo-cta:hover {
   text-decoration: underline;
 }
 
+header nav .mega-menu-promo-cta .icon-blue-arrow {
+  display: inline-flex;
+  align-items: center;
+}
+
 header nav .mega-menu-promo-cta .icon-blue-arrow img {
-  width: 14px;
-  height: 14px;
+  width: 24px;
+  height: 24px;
 }
 
 /* tabbed/sidebar layout mega menu (Products) */
