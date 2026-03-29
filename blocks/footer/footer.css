@@ -1,20 +1,181 @@
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background: rgb(34, 33, 43);
+  color: rgb(180, 180, 180);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.6;
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+footer a:any-link {
+  color: white;
+  text-decoration: none;
 }
 
-footer .footer p {
+footer a:hover {
+  color: #4A4A52;
+  text-decoration: none;
+}
+
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 12px;
+}
+
+footer p {
   margin: 0;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
-  }
+/* bottom-utility-bar */
+footer .bottom-utility-bar-wrapper {
+  border-bottom: none;
+  max-width: unset !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+footer .bottom-utility-bar > div {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 16px 14%;
+}
+
+footer .bottom-utility-bar > div > div {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+footer .bottom-utility-bar p {
+  font-size: 13px;
+  font-weight: 500;
+  color: #8e8e8e;
+  white-space: nowrap;
+}
+
+footer .bottom-utility-bar ul {
+  display: flex;
+  gap: 24px;
+}
+
+footer .bottom-utility-bar li {
+  white-space: nowrap;
+}
+
+footer .bottom-utility-bar a:any-link {
+  font-weight: 400;
+  color: #8e8e8e;
+}
+
+footer .bottom-utility-bar a:hover {
+  color: white;
+}
+
+/* main-footer-nav */
+footer .main-footer-nav-wrapper {
+  max-width: unset !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+footer .main-footer-nav > div {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1.2fr 1.2fr;
+  gap: 40px;
+  padding: 48px 14%;
+}
+
+footer .main-footer-nav > div > div:first-child {
+  display: flex;
+  align-items: flex-start;
+}
+
+footer .main-footer-nav > div > div:first-child picture {
+  display: block;
+}
+
+footer .main-footer-nav > div > div:first-child img {
+  width: 70px;
+  height: auto;
+}
+
+footer .main-footer-nav li {
+  margin-bottom: 6px;
+}
+
+footer .main-footer-nav h4 + ul {
+  margin-bottom: 24px;
+}
+
+/* footer-utility-nav */
+footer .footer-utility-nav-wrapper {
+  max-width: unset !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-top: none;
+}
+
+footer .footer-utility-nav > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 14%;
+}
+
+footer .footer-utility-nav > div > div:first-child {
+  font-size: 13px;
+  color: white;
+}
+
+footer .footer-utility-nav > div > div:nth-child(2) ul {
+  display: flex;
+  gap: 24px;
+}
+
+footer .footer-utility-nav > div > div:nth-child(2) a:any-link {
+  font-size: 13px;
+  color: white;
+}
+
+footer .footer-utility-nav > div > div:nth-child(2) a:hover {
+  color: #8e8e8e;
+}
+
+footer .footer-utility-nav > div > div:last-child {
+  text-align: left;
+  padding-top: 16px;
+}
+
+footer .footer-utility-nav > div > div:last-child h4 {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 0;
+  line-height: 3.5;
+}
+
+/* social icons */
+footer .footer-utility-nav .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #2D7AEA;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+footer .footer-utility-nav .icon svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
 }
