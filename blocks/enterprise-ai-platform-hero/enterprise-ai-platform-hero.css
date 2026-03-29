@@ -1,0 +1,116 @@
+/* section */
+main > .section.enterprise-ai-platform-hero-container {
+  padding: 80px 0 60px !important;
+  margin: 0 !important;
+}
+
+main > .section > .enterprise-ai-platform-hero-wrapper {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+}
+
+/* hero row — text left, image right */
+.eaph-hero {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.eaph-hero-text {
+  flex: 0 0 40%;
+}
+
+.eaph-hero-text h2,
+.eaph-hero-text h2 strong {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 36px;
+  font-weight: 500 !important;
+  line-height: 1.2;
+  color: rgb(34, 33, 43);
+  margin: 0 0 20px;
+}
+
+.eaph-hero-text p {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgb(107, 107, 107);
+  margin: 0;
+}
+
+.eaph-hero-img {
+  flex: 1;
+}
+
+.eaph-hero-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+/* cards row — 4 columns */
+.eaph-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.eaph-card {
+  border-top: 1px solid rgb(217, 215, 210);
+  padding-top: 24px;
+}
+
+.eaph-card p:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 0 12px;
+}
+
+.eaph-card p:first-child picture {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.eaph-card p:first-child img {
+  width: 48px;
+  height: auto;
+}
+
+.eaph-card p:first-child strong {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(34, 33, 43);
+  line-height: 1.3;
+}
+
+.eaph-card p:nth-child(2) {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgb(107, 107, 107);
+  margin: 0 0 16px;
+}
+
+.eaph-link {
+  color: rgb(54, 148, 253) !important;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+}
+
+.eaph-link::after {
+  content: '→';
+}
+
+.eaph-link:hover {
+  text-decoration: underline !important;
+}
