@@ -7,29 +7,31 @@ main > .section.enterprise-ai-platform-hero-container {
 main > .section > .enterprise-ai-platform-hero-wrapper {
   max-width: unset !important;
   margin: 0 !important;
-  padding: 0 14% !important;
+  padding: 0 6% !important;
+}
+
+@media (width >= 900px) {
+  main > .section > .enterprise-ai-platform-hero-wrapper {
+    padding: 0 14% !important;
+  }
 }
 
 /* hero row — text left, image right */
 .eaph-hero {
   display: flex;
-  align-items: center;
-  gap: 60px;
-  margin-bottom: 60px;
-}
-
-.eaph-hero-text {
-  flex: 0 0 40%;
+  flex-direction: column-reverse;
+  gap: 32px;
+  margin-bottom: 40px;
 }
 
 .eaph-hero-text h2,
 .eaph-hero-text h2 strong {
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 500 !important;
   line-height: 1.2;
   color: rgb(34 33 43);
-  margin: 0 0 20px;
+  margin: 0 0 16px;
 }
 
 .eaph-hero-text p {
@@ -41,7 +43,31 @@ main > .section > .enterprise-ai-platform-hero-wrapper {
 }
 
 .eaph-hero-img {
-  flex: 1;
+  width: 100%;
+}
+
+@media (width >= 900px) {
+  .eaph-hero {
+    flex-direction: row;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .eaph-hero-text {
+    flex: 0 0 40%;
+  }
+
+  .eaph-hero-text h2,
+  .eaph-hero-text h2 strong {
+    font-size: 36px;
+    margin: 0 0 20px;
+  }
+
+  .eaph-hero-img {
+    flex: 1;
+    width: auto;
+  }
 }
 
 .eaph-hero-img img {

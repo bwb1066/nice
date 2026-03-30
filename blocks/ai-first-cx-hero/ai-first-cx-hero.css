@@ -33,7 +33,13 @@ main > .section.ai-first-cx-hero-container > .default-content-wrapper p {
 main > .section > .ai-first-cx-hero-wrapper {
   max-width: unset !important;
   margin: 0 !important;
-  padding: 0 14% !important;
+  padding: 0 6% !important;
+}
+
+@media (width >= 900px) {
+  main > .section > .ai-first-cx-hero-wrapper {
+    padding: 0 14% !important;
+  }
 }
 
 /* layout — accordion left, image right */

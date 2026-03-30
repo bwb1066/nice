@@ -20,9 +20,9 @@ export default function decorate(block) {
   const slidePictures = [];
   const slides = rows.map((row, i) => {
     const [mediaCol, contentCol] = [...row.children];
-    const picture = mediaCol?.querySelector('picture');
+    const pictures = mediaCol ? [...mediaCol.querySelectorAll('picture')] : [];
     const videoLink = mediaCol?.querySelector('a[href$=".mp4"]');
-    slidePictures[i] = picture || null;
+    slidePictures[i] = pictures;
     const videoSrc = videoLink?.href || '';
     const heading = contentCol?.querySelector('h1,h2,h3')?.innerHTML || '';
     let body = '';
@@ -48,6 +48,9 @@ export default function decorate(block) {
       .hcx-s.on { transform:translateX(0); pointer-events:auto; z-index:1; }
       .hcx-s.hcx-exit { transform:translateX(-100%); z-index:0; }
       .hcx-s > picture, .hcx-s > picture img, .hcx-s > video { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:top; }
+      .hcx-s > picture.hcx-overlay { left:auto; right:50px; width:55%; height:auto; top:50%; transform:translateY(calc(-50% - 275px)) scale(0.5); }
+      .hcx-s[data-i="1"] > picture.hcx-overlay { transform:translateY(calc(-50% - 300px)) scale(0.9); right:250px; }
+      .hcx-s > picture.hcx-overlay img { width:100%; height:auto; object-fit:contain; object-position:right center; }
       .hcx-c { position:absolute; top:0; left:0; bottom:20%; width:55%; z-index:2; display:flex; flex-direction:column; justify-content:center; padding:0 5% 0 8%; box-sizing:border-box; }
       .hcx-c.hcx-centered { left:0; width:100%; top:auto; bottom:20%; align-items:center; text-align:center; padding:0 8%; justify-content:flex-end; padding-bottom:15px; }
       .hcx-discover { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:white; border-radius:30px; font-size:16px; font-weight:500; color:rgb(34,33,43); cursor:pointer; transition:all 0.2s ease; }
@@ -73,13 +76,24 @@ export default function decorate(block) {
       .hcx-pb { width:100%; height:3px; background:rgba(0,0,0,.15); border-radius:2px; overflow:hidden; }
       .hcx-pb > div { height:100%; width:0; background:#3694fd; border-radius:2px; }
       @media (max-width: 899px) {
-        .hcx { height:100vh; min-height:600px; max-height:900px; }
-        .hcx-c { width:100%; bottom:25%; padding:0 6%; box-sizing:border-box; }
-        .hcx-c.hcx-centered { bottom:25%; padding:0 6%; }
-        .hcx-c h2, .hcx-c h2 strong { font-size:28px; line-height:36px; }
+        .hcx { height:auto !important; overflow:visible !important; }
+        .hcx-slides { height:auto !important; }
+        .hcx-s { position:relative !important; top:auto !important; left:auto !important; width:100% !important; height:auto !important; min-height:calc(85vh - 175px); transform:none !important; transition:none !important; display:none !important; flex-direction:column; justify-content:center; pointer-events:auto !important; z-index:auto !important; }
+        .hcx-s.on { display:flex !important; }
+        .hcx-s.hcx-exit { display:none !important; }
+        .hcx-s > picture:not(.hcx-overlay) { position:relative !important; top:auto !important; left:auto !important; width:100% !important; height:auto !important; z-index:0; min-height:250px; }
+        .hcx-s > picture:not(.hcx-overlay) img { position:relative !important; top:auto !important; left:auto !important; width:100% !important; height:auto !important; object-fit:cover !important; min-height:250px; }
+        .hcx-s:has(.hcx-overlay) > picture:not(.hcx-overlay) { position:absolute !important; top:0 !important; left:0 !important; height:100% !important; min-height:0; }
+        .hcx-s:has(.hcx-overlay) > picture:not(.hcx-overlay) img { position:absolute !important; top:0 !important; left:0 !important; height:100% !important; min-height:0; }
+        .hcx-s > picture.hcx-overlay { position:relative !important; right:auto !important; left:auto !important; top:auto !important; width:85% !important; height:auto !important; margin:0 auto !important; transform:none !important; z-index:1; padding-top:16px; margin-top:100px; }
+        .hcx-s > picture.hcx-overlay img { position:relative !important; width:100% !important; height:auto !important; object-fit:contain !important; }
+        .hcx-c { position:relative !important; top:auto !important; left:auto !important; bottom:auto !important; width:100% !important; height:auto !important; padding:20px 6% 40px !important; box-sizing:border-box; text-align:center; z-index:2; display:flex; flex-direction:column; justify-content:center; }
+        .hcx-c.hcx-centered { position:relative !important; top:auto !important; bottom:auto !important; padding:20px 6% 40px !important; margin-top:250px; }
+        .hcx-c h2, .hcx-c h2 strong { font-size:24px; line-height:32px; }
         .hcx-c p { font-size:14px; line-height:1.5; }
         .hcx-btn { padding:10px 20px; font-size:13px; }
-        .hcx-ctrls { padding:12px 4%; flex-wrap:wrap; }
+        .hcx-s > video { position:absolute !important; top:0 !important; left:0 !important; width:100% !important; height:100% !important; object-fit:cover !important; }
+        .hcx-ctrls { position:relative !important; bottom:auto !important; padding:12px 4%; flex-wrap:wrap; }
         .hcx-cb { max-width:none; padding:8px 8px; }
         .hcx-cb span { font-size:11px; }
         .hcx-discover { padding:10px 20px; font-size:14px; }
@@ -91,7 +105,7 @@ export default function decorate(block) {
   let sh = '';
   slides.forEach((s, i) => {
     let bg = '';
-    if (slidePictures[i]) bg = `<div data-slide-pic="${i}"></div>`;
+    if (slidePictures[i].length > 0) bg = `<div data-slide-pic="${i}"></div>`;
     else if (s.videoSrc) bg = `<video autoplay muted loop playsinline><source src="${s.videoSrc}" type="video/mp4"></video>`;
 
     let btns = '';
@@ -124,10 +138,13 @@ export default function decorate(block) {
 
   // Replace picture placeholders
   block.querySelectorAll('[data-slide-pic]').forEach((el) => {
-    const pic = slidePictures[el.dataset.slidePic];
-    if (pic) {
+    const pics = slidePictures[el.dataset.slidePic];
+    if (pics.length > 0) {
       const slide = el.parentElement;
-      slide.insertBefore(pic, el);
+      pics.forEach((pic, pi) => {
+        if (pi > 0) pic.classList.add('hcx-overlay');
+        slide.insertBefore(pic, el);
+      });
       el.remove();
     }
   });

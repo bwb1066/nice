@@ -20,6 +20,14 @@ main > .section.hero-carousel-container {
   margin: 0 auto;
 }
 
+@media (width <= 899px) {
+  .hero-carousel {
+    height: auto;
+    width: 100%;
+    border-radius: 16px;
+  }
+}
+
 /* slides */
 .hc-slides {
   position: relative;

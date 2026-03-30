@@ -9,7 +9,13 @@ main > .section.ai-driven-cx-transformation-hero-container {
 main > .section > .ai-driven-cx-transformation-hero-wrapper {
   max-width: unset !important;
   margin: 0 !important;
-  padding: 0 14% !important;
+  padding: 0 6% !important;
+}
+
+@media (width >= 900px) {
+  main > .section > .ai-driven-cx-transformation-hero-wrapper {
+    padding: 0 14% !important;
+  }
 }
 
 /* heading row */
