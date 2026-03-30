@@ -480,6 +480,7 @@ header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
     flex-basis: auto;
+    flex-flow: row wrap;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li:hover > .mega-menu {
