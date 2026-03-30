@@ -54,8 +54,21 @@ main > .section > .enterprise-ai-platform-hero-wrapper {
 /* cards row — 4 columns */
 .eaph-cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (width >= 600px) {
+  .eaph-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (width >= 900px) {
+  .eaph-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .eaph-card {

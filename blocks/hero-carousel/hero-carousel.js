@@ -72,6 +72,18 @@ export default function decorate(block) {
       .hcx-cb.on span { font-weight:600; }
       .hcx-pb { width:100%; height:3px; background:rgba(0,0,0,.15); border-radius:2px; overflow:hidden; }
       .hcx-pb > div { height:100%; width:0; background:#3694fd; border-radius:2px; }
+      @media (max-width: 899px) {
+        .hcx { height:100vh; min-height:600px; max-height:900px; }
+        .hcx-c { width:100%; bottom:25%; padding:0 6%; box-sizing:border-box; }
+        .hcx-c.hcx-centered { bottom:25%; padding:0 6%; }
+        .hcx-c h2, .hcx-c h2 strong { font-size:28px; line-height:36px; }
+        .hcx-c p { font-size:14px; line-height:1.5; }
+        .hcx-btn { padding:10px 20px; font-size:13px; }
+        .hcx-ctrls { padding:12px 4%; flex-wrap:wrap; }
+        .hcx-cb { max-width:none; padding:8px 8px; }
+        .hcx-cb span { font-size:11px; }
+        .hcx-discover { padding:10px 20px; font-size:14px; }
+      }
     </style>
   `;
 

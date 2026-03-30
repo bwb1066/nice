@@ -180,3 +180,44 @@ footer .footer-utility-nav .icon svg {
   height: 20px;
   fill: white;
 }
+
+/* mobile */
+@media (width <= 899px) {
+  footer .bottom-utility-bar > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 6%;
+  }
+
+  footer .bottom-utility-bar > div > div {
+    flex-wrap: wrap;
+    gap: 12px 24px;
+  }
+
+  footer .bottom-utility-bar li {
+    white-space: normal;
+  }
+
+  footer .main-footer-nav > div {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 6%;
+  }
+
+  footer .footer-utility-nav > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 24px 6%;
+  }
+
+  footer .footer-utility-nav > div > div:nth-child(2) ul {
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+
+  footer .footer-utility-nav > div > div:last-child {
+    padding-top: 0;
+  }
+}

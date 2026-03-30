@@ -44,10 +44,23 @@ main > .section > .ai-driven-cx-transformation-hero-wrapper {
 /* cards row */
 .adcx-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  grid-template-columns: 1fr;
+  gap: 24px;
   max-width: 90%;
   margin: 0 auto;
+}
+
+@media (width >= 600px) {
+  .adcx-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (width >= 900px) {
+  .adcx-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .adcx-card {

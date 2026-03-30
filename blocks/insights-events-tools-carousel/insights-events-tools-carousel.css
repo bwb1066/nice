@@ -182,3 +182,50 @@ main > .section > .insights-events-tools-carousel-wrapper {
   background: rgb(34 33 43);
   color: white;
 }
+
+/* mobile */
+@media (width <= 899px) {
+  main > .section.insights-events-tools-carousel-container {
+    padding: 40px 0 120px !important;
+  }
+
+  main > .section.insights-events-tools-carousel-container > .default-content-wrapper {
+    padding: 0 6% !important;
+  }
+
+  main > .section.insights-events-tools-carousel-container > .default-content-wrapper h2,
+  main > .section.insights-events-tools-carousel-container > .default-content-wrapper h2 strong,
+  main > .section.insights-events-tools-carousel-container > .default-content-wrapper h3,
+  main > .section.insights-events-tools-carousel-container > .default-content-wrapper h3 strong {
+    font-size: 24px;
+  }
+
+  .ietc-header {
+    padding: 0 6% 16px;
+  }
+
+  .ietc-track {
+    padding-left: 6%;
+    padding-right: 6%;
+    gap: 4%;
+  }
+
+  .ietc-card {
+    flex: 0 0 75%;
+    border-radius: 24px;
+  }
+
+  .ietc-img {
+    border-radius: 24px;
+  }
+
+  .ietc-card-body {
+    margin: -150px 8px 8px;
+    border-radius: 20px;
+    padding: 16px 20px 20px;
+  }
+
+  .ietc-viewport {
+    margin-bottom: 40px;
+  }
+}

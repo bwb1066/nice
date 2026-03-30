@@ -39,18 +39,37 @@ main > .section > .ai-first-cx-hero-wrapper {
 /* layout — accordion left, image right */
 .afc-layout {
   display: flex;
-  gap: 48px;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .afc-accordion {
-  flex: 0 0 32%;
+  order: 1;
 }
 
 .afc-images {
-  flex: 1;
+  order: 2;
   position: relative;
-  min-height: 400px;
+  min-height: 300px;
+}
+
+@media (width >= 900px) {
+  .afc-layout {
+    flex-direction: row;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .afc-accordion {
+    flex: 0 0 32%;
+    order: unset;
+  }
+
+  .afc-images {
+    flex: 1;
+    min-height: 400px;
+    order: unset;
+  }
 }
 
 /* accordion items */
